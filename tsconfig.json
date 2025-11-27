@@ -22,6 +22,7 @@
     "noImplicitOverride": true,
 
     "paths": {
+      "@": ["./src"],
       "@/client": ["./src/client.ts"],
       "@/handlers/*": ["./src/handlers/*"],
       "@/config": ["./src/config.ts"],

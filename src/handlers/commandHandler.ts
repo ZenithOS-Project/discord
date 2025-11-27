@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import { config } from "../config";
+import { config } from "@/config";
 import chalk from "chalk";
 import { CustomClient } from "@/client";
 
@@ -39,8 +39,8 @@ export async function deployCommands(client: CustomClient) {
     const data = await rest.put(Routes.applicationGuildCommands(config.APP_ID, config.GUILD_ID), {
       body: Array.from(client.commands.values()).map((cmd) => cmd.data.toJSON()),
     });
-    console.log(chalk.green(`Successfully reloaded ${(data as any[]).length} application (/) commands.`));
+    console.log(chalk.blue(`[Bot] Successfully reloaded ${(data as any[]).length} application (/) commands.`));
   } catch (error) {
-    console.error(error);
+    console.error(chalk.red(`[Bot] Error deploying commands:`), error);
   }
 }

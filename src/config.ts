@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 const { APP_TOKEN, APP_ID, GUILD_ID } = process.env;
 
