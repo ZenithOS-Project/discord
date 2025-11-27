@@ -16,6 +16,14 @@ export function startServer() {
 }
 
 server.get("/health", async (req, res) => {
+  const checkBearerToken = req.headers["authorization"];
+  const expectedToken = process.env.HEALTH_CHECK_TOKEN;
+
+  if (!checkBearerToken || checkBearerToken !== `Bearer ${expectedToken}`) {
+    console.warn(chalk.red("[Notification Server] Unauthorized health check attempt."));
+    return res.status(401).send("Unauthorized");
+  }
+
   res.status(200).send("OK");
 
   try {
