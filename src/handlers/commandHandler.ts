@@ -24,7 +24,7 @@ async function loadCommands(client: CustomClient) {
       if ("data" in command) {
         client.commands.set(command.data.name, command);
       } else {
-        console.log(chalk.yellow(`[WARNING] | The command at ${filePath} is missing a required "data" or "execute" property.`));
+        console.log(chalk.yellow(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`));
       }
     }
   }

@@ -20,15 +20,15 @@ export async function loadEvents(client: CustomClient) {
       const eventHandler = event.default;
 
       if (!eventHandler) {
-        console.log(chalk.yellow(`[WARNING] | The event file at ${filePath} is missing a default export.`));
+        console.log(chalk.yellow(`[WARNING] The event file at ${filePath} is missing a default export.`));
         continue;
       }
 
       if (eventHandler.once) {
-        console.log(chalk.magenta(`[Bot] | Successfully loaded event (once): ${eventHandler.name}`));
+        console.log(chalk.magenta(`[Bot] Successfully loaded event (once): ${eventHandler.name}`));
         client.once(eventHandler.name, (...args) => eventHandler.execute(...args, client));
       } else {
-        console.log(chalk.magenta(`[Bot] | Successfully loaded event: ${eventHandler.name}`));
+        console.log(chalk.magenta(`[Bot] Successfully loaded event: ${eventHandler.name}`));
         client.on(eventHandler.name, (...args) => eventHandler.execute(...args, client));
       }
     } catch (error) {
