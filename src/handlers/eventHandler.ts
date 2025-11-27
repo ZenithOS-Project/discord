@@ -4,7 +4,7 @@ import { CustomClient } from "@/client";
 import { fileURLToPath } from "url";
 import chalk from "chalk";
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url as string);
 const __dirname = path.dirname(__filename);
 
 export async function loadEvents(client: CustomClient) {

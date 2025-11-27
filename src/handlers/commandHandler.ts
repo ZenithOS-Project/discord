@@ -7,7 +7,7 @@ import { config } from "@/config";
 import chalk from "chalk";
 import { CustomClient } from "@/client";
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url as string);
 const __dirname = dirname(__filename);
 
 async function loadCommands(client: CustomClient) {
