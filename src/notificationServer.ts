@@ -26,7 +26,7 @@ server.get("/health", async (req, res) => {
     }
 
     await healthLogChannel.send({
-      content: `[Health Check] Notification server is healthy at ${new Date().toISOString()}`,
+      content: `[Health Check] Notification server is healthy at ${new Date().toLocaleString()}.`,
     });
   } catch (error) {
     console.error(chalk.red("[Notification Server] Failed to log health check:"), error);
